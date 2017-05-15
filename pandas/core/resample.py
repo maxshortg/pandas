@@ -1333,8 +1333,8 @@ def _adjust_dates_anchored(first, last, offset, closed='right', base=0):
         else:
             lresult = last.value + offset.nanos
 
-    return Timestamp(fresult, tz='utc').tz_convert(first_tzinfo),
-           Timestamp(lresult, tz='utc').tz_convert(last_tzinfo)
+    return (Timestamp(fresult, tz='utc').tz_convert(first_tzinfo),
+            Timestamp(lresult, tz='utc').tz_convert(last_tzinfo))
 
 
 def asfreq(obj, freq, method=None, how=None, normalize=False, fill_value=None):
